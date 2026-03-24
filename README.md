@@ -8,11 +8,16 @@
 
 
 # Start new experiment
+```bash
 python -m steering.run_eval --model gemma-2-2b --task toxicity --variant vanilla
+```
 
 # Resume interrupted experiment
+```bash
 python -m steering.run_eval --resume outputs/steering/gemma-2-2b_toxicity_vanilla_20260324_072433
+```
 
 # Use specific run name for easy resumption
+```bash
 python -m steering.run_eval --model gemma-2-2b --task toxicity --variant vanilla --run-name my_experiment
-# Later: python -m steering.run_eval --resume outputs/steering/my_experiment
+```
