@@ -9,7 +9,7 @@
 
 # Start new experiment
 ```bash
-python -m steering.run_eval --model gemma-2-2b --task toxicity --variant vanilla
+python -m steering.run_eval --model gemma-2-2b [llama-3-8b, llama-3.1-8b] --task toxicity --variant vanilla [whitened]
 ```
 
 # Resume interrupted experiment
@@ -20,4 +20,22 @@ python -m steering.run_eval --resume outputs/steering/gemma-2-2b_toxicity_vanill
 # Use specific run name for easy resumption
 ```bash
 python -m steering.run_eval --model gemma-2-2b --task toxicity --variant vanilla --run-name my_experiment
+```
+
+# Plot toxicity (mean CLS toxicity with 95% CI)
+```bash
+python -m steering.plot_cls_toxicity \
+  --results \
+  outputs/steering/gemma-2-2b_toxicity_vanilla_*/results.csv \
+  outputs/steering/gemma-2-2b_toxicity_whitened_*/results.csv \
+  --output outputs/steering/figures/gemma2_toxicity_cls.pdf
+```
+
+# Plot truthfulness (MC1 + MC2 on dual y-axes with 95% CI)
+```bash
+python -m steering.plot_truthfulness \
+  --results \
+  outputs/steering/gemma-2-2b_truthfulness_vanilla_*/results.csv \
+  outputs/steering/gemma-2-2b_truthfulness_whitened_*/results.csv \
+  --output outputs/steering/figures/gemma2_truthfulness_dual_axis.pdf
 ```

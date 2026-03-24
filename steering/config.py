@@ -155,7 +155,7 @@ def create_toxicity_experiment_config(
 ) -> ExperimentConfig:
     """Create configuration for toxicity mitigation experiment."""
     if alpha_values is None:
-        alpha_values = [0.0, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0]
+        alpha_values = [0, 1, 5, 8, 10, 20]
 
     return ExperimentConfig(
         model_name=model_name,
@@ -174,7 +174,7 @@ def create_truthfulness_experiment_config(
 ) -> ExperimentConfig:
     """Create configuration for truthfulness induction experiment."""
     if alpha_values is None:
-        alpha_values = [0.0, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0]
+        alpha_values = [0, 1, 5, 8, 10, 20]
 
     return ExperimentConfig(
         model_name=model_name,
